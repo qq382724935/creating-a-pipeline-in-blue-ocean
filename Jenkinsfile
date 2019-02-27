@@ -27,5 +27,10 @@ pipeline {
         sh './jenkins/scripts/kill.sh'
       }
     }
+    stage('SenEmail') {
+      steps {
+        emailext(subject: '$DEFAULT_SUBJECT', body: '$DEFAULT_CONTENT', presendScript: '$DEFAULT_PRESEND_SCRIPT', postsendScript: '$DEFAULT_POSTSEND_SCRIPT', compressLog: true, attachLog: true, to: '382724935@qq.com', replyTo: '13166012346@163.com')
+      }
+    }
   }
 }
